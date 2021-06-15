@@ -9,31 +9,30 @@ const Input = ({
 }) => (
 <View style={styles.container}>
   <View style={styles.wrapper}>
-          <View style={styles.divInput(isSelected)}>
-          <TextInput
-            style={styles.input}
-            keyboardType="phone-pad"
-            editable={isSelected}
-            value={value}
-            onChangeText={onChangeText}
-          />
-          </View>
-          <Gap width={20} />
-          <View style={styles.divCheckBox}>
-          <CheckBox
-            disabled={false}
-            value={isSelected}
-            onValueChange={onValueChange}
-            tintColors={{ true: 'black' }}
-          />
-          </View>
+    <View style={styles.divInput(isSelected)}>
+      <TextInput
+        style={styles.input}
+        keyboardType="phone-pad"
+        editable={isSelected}
+        value={value}
+        onChangeText={onChangeText}
+      />
+    </View>
+    <Gap width={20} />
+    <View style={styles.divCheckBox}>
+      <CheckBox
+        disabled={false}
+        value={isSelected}
+        onValueChange={onValueChange}
+        tintColors={{ true: 'black' }}
+      />
+    </View>
   </View>
 </View>
 );
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -41,7 +40,6 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     flexDirection: 'row',
-    paddingHorizontal: 30
   },
   divInput: (isSelected) => ({
     flex: 1,
