@@ -20,8 +20,85 @@ const Home = () => {
     {label: '/'}
   ]
 
+  const [calculate, setCalculate] = useState(0);
+
   const onContinue = (label) => {
-    alert(label);
+    if(form.selectionOne === true && form.selectionTwo === false && form.selectionThree === false ||
+      form.selectionOne === false && form.selectionTwo === true && form.selectionThree === false ||
+      form.selectionOne === false && form.selectionTwo === false && form.selectionThree === true){
+      alert('Minimal dua check list');
+    } else if(form.selectionOne === true && form.selectionTwo === true && form.selectionThree === false){
+      const a = Number(form.numOne);
+      const b = Number(form.numTwo);
+       if(label === '+'){
+        setCalculate(a + b);
+       }
+       if(label === '-'){
+        setCalculate(a - b);
+       }
+       if(label === 'x'){
+        setCalculate(a * b);
+       }
+       if(label === '/'){
+        setCalculate(a / b);
+       }
+      reset();  
+    } else if(form.selectionOne === true && form.selectionTwo === false && form.selectionThree === true){
+      const a = Number(form.numOne);
+      const b = Number(form.numThree);
+       if(label === '+'){
+        setCalculate(a + b);
+       }
+       if(label === '-'){
+        setCalculate(a - b);
+       }
+       if(label === 'x'){
+        setCalculate(a * b);
+       }
+       if(label === '/'){
+        setCalculate(a / b);
+       }
+      reset();  
+    } else if(form.selectionOne === false && form.selectionTwo === true && form.selectionThree === true){
+      const a = Number(form.numTwo);
+      const b = Number(form.numThree);
+       if(label === '+'){
+        setCalculate(a + b);
+       }
+       if(label === '-'){
+        setCalculate(a - b);
+       }
+       if(label === 'x'){
+        setCalculate(a * b);
+       }
+       if(label === '/'){
+        setCalculate(a / b);
+       }
+      reset();
+    } else if(form.selectionOne === true && form.selectionTwo === true && form.selectionThree === true){
+      const a = Number(form.numOne);
+      const b = Number(form.numTwo);
+      const c = Number(form.numThree)
+       if(label === '+'){
+        setCalculate(a + b + c);
+       }
+       if(label === '-'){
+        setCalculate(a - b - c);
+       }
+       if(label === 'x'){
+        setCalculate(a * b * c);
+       }
+       if(label === '/'){
+        setCalculate(a / b / c);
+       }
+      reset();
+    } else{
+      alert('Dicentang dulu, Plis!');
+    }
+  };
+
+  const reset = () => {
+    setForm('reset');
   };
 
   return (
@@ -58,7 +135,8 @@ const Home = () => {
       </View>
       <Gap height={20} />
       <View style={styles.wrapperResult}>
-        <Text>Hasil : </Text>
+        <Text style={styles.text}>Hasil : </Text>
+        <Text style={styles.text}>{calculate}</Text>
       </View>
     </View>
   );
@@ -78,6 +156,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderTopWidth: 2,
     paddingTop: 25,
+  },
+  text:{
+    fontSize: 18,
   }
 });
 export default Home;

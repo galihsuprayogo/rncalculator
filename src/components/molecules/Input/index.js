@@ -14,7 +14,7 @@ const Input = ({
         style={styles.input}
         keyboardType="phone-pad"
         editable={isSelected}
-        value={value}
+        value={ value }
         onChangeText={onChangeText}
       />
     </View>
