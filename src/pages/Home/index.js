@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import { useForm } from '../../utils';
 import { Input, Gap, Button } from '../../components';
@@ -21,6 +21,28 @@ const Home = () => {
   ]
 
   const [calculate, setCalculate] = useState(0);
+  const timeOut = useRef(null);
+
+  useEffect(() => {
+    timeOut.current = setTimeout(() => {
+      form.selectionOne === false ? reset() : '';
+    }, 50);
+    return () => clearTimeout(timeOut.current);
+  }, [form.selectionOne]);
+
+  useEffect(() => {
+    timeOut.current = setTimeout(() => {
+      form.selectionTwo === false ? reset() : '';
+    }, 50);
+    return () => clearTimeout(timeOut.current);
+  }, [form.selectionTwo]);
+
+  useEffect(() => {
+    timeOut.current = setTimeout(() => {
+      form.selectionThree === false ? reset() : '';
+    }, 50);
+    return () => clearTimeout(timeOut.current);
+  }, [form.selectionThree]);
 
   const onContinue = (label) => {
     if(form.selectionOne === true && form.selectionTwo === false && form.selectionThree === false ||

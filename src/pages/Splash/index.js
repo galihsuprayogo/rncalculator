@@ -5,9 +5,10 @@ import { colors } from '../../utils/colors';
 
 const Splash = ({ navigation }) => {
   useEffect(() => {
-    setTimeout(() => {
+    const unsubscribe = setTimeout(() => {
       navigation.replace('Home');
-    }, 1500);
+    }, 1000);
+    return () => clearTimeout(unsubscribe);  
   }, [navigation]);
 
   return (
