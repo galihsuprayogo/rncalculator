@@ -50,70 +50,102 @@ const Home = () => {
       form.selectionOne === false && form.selectionTwo === false && form.selectionThree === true){
       alert('Minimal dua check list');
     } else if(form.selectionOne === true && form.selectionTwo === true && form.selectionThree === false){
-      const a = Number(form.numOne);
-      const b = Number(form.numTwo);
-       if(label === '+'){
-        setCalculate(a + b);
-       }
-       if(label === '-'){
-        setCalculate(a - b);
-       }
-       if(label === 'x'){
-        setCalculate(a * b);
-       }
-       if(label === '/'){
-        setCalculate(a / b);
-       }
-      reset();  
+        if(!/^\d+$/.test(form.numOne) || !/^\d+$/.test(form.numTwo)){
+          alert('Angka aja ya, jangan yang lain!');
+          reset();
+        } else {
+          const a = Number(form.numOne);
+          const b = Number(form.numTwo);
+          if(a === 0 || b === 0){
+            alert('Diisi dulu ya! jangan buru-buru');
+          } else{
+            if(label === '+'){
+              setCalculate(a + b);
+            }
+            if(label === '-'){
+              setCalculate(a - b);
+            }
+            if(label === 'x'){
+              setCalculate(a * b);
+            }
+            if(label === '/'){
+              setCalculate(a / b);
+            }
+            reset();
+          }  
+        }
     } else if(form.selectionOne === true && form.selectionTwo === false && form.selectionThree === true){
-      const a = Number(form.numOne);
-      const b = Number(form.numThree);
-       if(label === '+'){
-        setCalculate(a + b);
-       }
-       if(label === '-'){
-        setCalculate(a - b);
-       }
-       if(label === 'x'){
-        setCalculate(a * b);
-       }
-       if(label === '/'){
-        setCalculate(a / b);
-       }
-      reset();  
+        if(!/^\d+$/.test(form.numOne) || !/^\d+$/.test(form.numThree)){
+          alert('Angka aja ya, jangan yang lain!');
+          reset();
+        } else{
+          const a = Number(form.numOne);
+          const b = Number(form.numThree);
+          if(a === 0 || b === 0){
+            alert('Diisi dulu ya! jangan buru-buru');
+          } else{
+            if(label === '+'){
+              setCalculate(a + b);
+            }
+            if(label === '-'){
+              setCalculate(a - b);
+            }
+            if(label === 'x'){
+              setCalculate(a * b);
+            }
+            if(label === '/'){
+              setCalculate(a / b);
+            }
+            reset();
+          }  
+        }    
     } else if(form.selectionOne === false && form.selectionTwo === true && form.selectionThree === true){
-      const a = Number(form.numTwo);
-      const b = Number(form.numThree);
-       if(label === '+'){
-        setCalculate(a + b);
-       }
-       if(label === '-'){
-        setCalculate(a - b);
-       }
-       if(label === 'x'){
-        setCalculate(a * b);
-       }
-       if(label === '/'){
-        setCalculate(a / b);
-       }
-      reset();
+        if(!/^\d+$/.test(form.numTwo) || !/^\d+$/.test(form.numThree)){
+          alert('Angka aja ya, jangan yang lain!');
+          reset();
+        } else{
+          const a = Number(form.numTwo);
+          const b = Number(form.numThree);
+          if(a === 0 || b === 0){
+            alert('Diisi dulu ya! jangan buru-buru');
+          } else{
+            if(label === '+'){
+              setCalculate(a + b);
+            }
+            if(label === '-'){
+              setCalculate(a - b);
+            }
+            if(label === 'x'){
+              setCalculate(a * b);
+            }
+            if(label === '/'){
+              setCalculate(a / b);
+            }
+            reset();
+          }
+        }
     } else if(form.selectionOne === true && form.selectionTwo === true && form.selectionThree === true){
-      const a = Number(form.numOne);
-      const b = Number(form.numTwo);
-      const c = Number(form.numThree)
-       if(label === '+'){
-        setCalculate(a + b + c);
-       }
-       if(label === '-'){
-        setCalculate(a - b - c);
-       }
-       if(label === 'x'){
-        setCalculate(a * b * c);
-       }
-       if(label === '/'){
-        setCalculate(a / b / c);
-       }
-      reset();
+      if(!/^\d+$/.test(form.numOne) || !/^\d+$/.test(form.numTwo) || !/^\d+$/.test(form.numThree)){
+        alert('Angka aja ya, jangan yang lain!');
+        reset();
+      } else {
+        const a = Number(form.numOne);
+        const b = Number(form.numTwo);
+        const c = Number(form.numThree)
+         if(label === '+'){
+          setCalculate(a + b + c);
+         }
+         if(label === '-'){
+          setCalculate(a - b - c);
+         }
+         if(label === 'x'){
+          setCalculate(a * b * c);
+         }
+         if(label === '/'){
+          setCalculate(a / b / c);
+         }
+        reset();
+      } 
     } else{
       alert('Dicentang dulu, Plis!');
     }
